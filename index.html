@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Title</title>
+    <link rel="stylesheet" href="./CSS/style.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div id="hero">
+        <div class="navbar">
+            <img src="./Image/logo.png" class="logo">
+            <div class="user">
+                <button type="button">Explore</button>
+                <img src="./Image/User.jpg">
+            </div>
+        </div>
+        <div class="container">
+            <div class="info">
+                <h1>DISCOVER</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt <br>ut labore et dolore magna aliqua.
+                   Ut enim ad minim veniam,quis nostrud exercitation <br> ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    Duis aute irure dolor in <br> reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                    Excepteur<br>  sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id <br> est laborum.
+                </p>
+                <input type="text" placeholder="Search">
+            </div>
+        </div>
+        <div class="slider">
+            <img src="./Image/left-arrow.png" id="prev">
+            <div class="preview">
+                <img src="./Image/small1.png" class=" active thumbnail">
+                <img src="./Image/small2.png" class="thumbnail">
+                <img src="./Image/small3.png" class="thumbnail">
+                <img src="./Image/small4.png" class="thumbnail">
+                <img src="./Image/small5.png" class="thumbnail">
+            </div>
+            <img src="./Image/right-arrow.png" id="next">
+        </div>
+    </div>
+
+
+    <script>
+        var prev = document.getElementById("prev");
+        var next = document.getElementById("next");
+        var thumbnail = document.getElementsByClassName("thumbnail");
+        var hero = document.getElementsById("hero");
+
+
+        var backgroundImg = new Array(
+            "Image/bg1.png",
+            "Image/bg2.png",
+            "Image/bg3.png",
+            "Image/bg4.png",
+            "Image/bg5.png",
+        );
+
+        let i=0;
+        next.onclick = function(){
+    
+        if(i < 4){
+            hero.style.backgroundImage = 'url("'+backgroundImg[i+1]+'")';
+            thumbnail[i+1].classList.add("active");
+            thumbnail[i].classList.remove("active");
+            i++;
+            }
+
+    
+        }
+
+        prev.onclick = function(){
+    
+        if(i>0){
+            hero.style.backgroundImg = 'url("'+backgroundImg[i-1]+'")';
+            thumbnail[i-1].classList.add("active");
+            thumbnail[i].classList.remove("active");
+            i--;
+            }
+
+    
+        }
+
+    </script>
+</body>
+</html>
